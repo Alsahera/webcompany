@@ -136,27 +136,6 @@
      ============================================ --}}
 <section class="section-py">
     <div class="container">
-
-        <div class="row g-4 mb-5">
-            @foreach($contacts as $i => $c)
-            <div class="col-lg-3 col-md-6 fade-in-up fade-in-up-{{ $i + 1 }}">
-                <div class="contact-info-card flex-column text-center">
-                    <div class="contact-icon icon-box {{ $c['color'] }} mx-auto">
-                        <i class="bi {{ $c['icon'] }}"></i>
-                    </div>
-                    <div class="mt-3">
-                        <div class="fw-bold mb-1" style="font-size:0.85rem;color:var(--kf-gray);text-transform:uppercase;letter-spacing:0.06em;">
-                            {{ $c['title'] }}
-                        </div>
-                        <div style="font-size:0.92rem;font-weight:600;color:var(--kf-dark);">
-                            {{ $c['value'] }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-
         <div class="row g-5">
 
             {{-- FORM CONTACT --}}
@@ -263,7 +242,7 @@
                                     <input type="checkbox" class="form-check-input" id="consent" required>
                                     <label class="form-check-label" for="consent" style="font-size:0.85rem;color:var(--kf-gray);">
                                         Saya menyetujui <a href="#" class="text-primary">Kebijakan Privasi</a> dan
-                                        bersedia dihubungi oleh tim KosFinder.
+                                        bersedia dihubungi oleh tim LaKost.
                                     </label>
                                     <div class="invalid-feedback">Kamu harus menyetujui kebijakan privasi.</div>
                                 </div>
@@ -289,18 +268,11 @@
                         <i class="bi bi-geo-alt-fill text-primary me-2"></i>Lokasi Kantor
                     </h5>
                     <div class="map-container">
-                        {{-- Google Maps embed (contoh: Jl Sudirman, Jakarta) --}}
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2827498990274!2d106.81890037454946!3d-6.214482893782012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e3fc9c80a5%3A0x23e1fb95da21aee9!2sJl.%20Jend.%20Sudirman%2C%20Jakarta!5e0!3m2!1sid!2sid!4v1709000000000!5m2!1sid!2sid"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Lokasi Kantor KosFinder">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.0640470813964!2d112.4237469731887!3d-7.118576692885092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77f0aa4af09387%3A0x2fe19128fa287ca2!2sJl.%20Mendalan%20No.62%2C%20Mendalan%2C%20Banjarmendalan%2C%20Kec.%20Lamongan%2C%20Kabupaten%20Lamongan%2C%20Jawa%20Timur%2062212!5e0!3m2!1sid!2sid!4v1774812754172!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <small class="text-muted mt-2 d-block">
                         <i class="bi bi-info-circle me-1"></i>
-                        Jl. Sudirman No. 88, Jakarta Selatan 12190
+                        Jl. Mendalan No.62, Banjarmendalan, Lamongan, Jawa Timur 62212
                     </small>
                 </div>
 

@@ -1,6 +1,6 @@
 {{--
     Partial: partials/footer.blade.php
-    Footer utama KosFinder
+    Footer utama LaKost
 --}}
 
 <footer class="kf-footer">
@@ -16,7 +16,7 @@
                         <div class="brand-icon-footer">
                             <i class="bi bi-house-heart-fill"></i>
                         </div>
-                        <span class="brand-text-footer">Kos<span>Finder</span></span>
+                        <span class="brand-text-footer">La<span>Kost</span></span>
                     </div>
                     <p class="footer-desc">
                         Platform pencarian kos terpercaya yang membantu jutaan orang menemukan hunian
@@ -78,7 +78,7 @@
                         </li>
                         <li>
                             <i class="bi bi-envelope-fill text-primary"></i>
-                            <span>hello@kosfinder.id</span>
+                            <span>hello@lakost.id</span>
                         </li>
                         <li>
                             <i class="bi bi-clock-fill text-primary"></i>
@@ -96,7 +96,7 @@
         <div class="container">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
                 <p class="mb-0 footer-copy">
-                    &copy; {{ date('Y') }} <strong>KosFinder</strong>. Hak cipta dilindungi undang-undang.
+                    &copy; {{ date('Y') }} <strong>LaKost</strong>. Hak cipta dilindungi undang-undang.
                 </p>
                 <div class="d-flex gap-3">
                     <a href="#" class="footer-bottom-link">Kebijakan Privasi</a>
@@ -179,14 +179,8 @@
         align-items: center;
         gap: 6px;
     }
-    .footer-links a i {
-        font-size: 0.7rem;
-        transition: transform 0.2s;
-    }
-    .footer-links a:hover {
-        color: #60A5FA;
-        padding-left: 4px;
-    }
+    .footer-links a i { font-size: 0.7rem; transition: transform 0.2s; }
+    .footer-links a:hover { color: #60A5FA; padding-left: 4px; }
     .footer-links a:hover i { transform: translateX(2px); }
 
     /* Contact List */
@@ -206,16 +200,11 @@
         color: rgba(255,255,255,0.6);
         line-height: 1.5;
     }
-    .footer-contact-list li i {
-        margin-top: 2px;
-        flex-shrink: 0;
-        font-size: 0.9rem;
-    }
+    .footer-contact-list li i { margin-top: 2px; flex-shrink: 0; font-size: 0.9rem; }
 
     /* Social Buttons */
     .social-btn {
-        width: 38px;
-        height: 38px;
+        width: 38px; height: 38px;
         border-radius: 10px;
         background: rgba(255,255,255,0.08);
         border: 1px solid rgba(255,255,255,0.10);
@@ -239,10 +228,7 @@
         border-top: 1px solid rgba(255,255,255,0.08);
         padding: 20px 0;
     }
-    .footer-copy {
-        font-size: 0.83rem;
-        color: rgba(255,255,255,0.4);
-    }
+    .footer-copy { font-size: 0.83rem; color: rgba(255,255,255,0.4); }
     .footer-copy strong { color: rgba(255,255,255,0.6); }
     .footer-bottom-link {
         font-size: 0.83rem;

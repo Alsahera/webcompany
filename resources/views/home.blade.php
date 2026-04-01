@@ -1,6 +1,6 @@
 {{--
     View: home.blade.php
-    Halaman beranda KosFinder
+    Halaman beranda LaKost
 --}}
 
 @extends('layouts.app')
@@ -70,10 +70,6 @@
         color: var(--kf-dark);
         margin-bottom: 1.25rem;
     }
-    .hero-title .highlight {
-        color: var(--kf-primary);
-        position: relative;
-    }
 
     .hero-desc {
         font-size: 1.05rem;
@@ -118,7 +114,6 @@
         flex-wrap: wrap;
         margin-top: 2rem;
     }
-    .hero-stat-item { text-align: left; }
     .hero-stat-item .stat-num {
         display: block;
         font-size: 1.4rem;
@@ -131,55 +126,65 @@
         color: var(--kf-gray);
     }
 
-    /* Hero Visual */
-    .hero-visual {
+    /* Hero Image Stack */
+    .hero-img-stack {
         position: relative;
     }
-    .hero-card-main {
-        background: white;
+    .hero-img-main {
         border-radius: 20px;
-        padding: 20px;
-        box-shadow: 0 16px 48px rgba(26,86,219,0.18);
-        border: 1px solid var(--kf-border);
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(26,86,219,0.20);
+        border: 4px solid white;
     }
-    .hero-card-img {
+    .hero-img-main img {
         width: 100%;
-        height: 220px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #DBEAFE, #EFF6FF);
+        height: 380px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .hero-img-main:hover img { transform: scale(1.04); }
+
+    .hero-img-badge {
+        position: absolute;
+        bottom: -20px; left: -24px;
+        background: white;
+        border-radius: 16px;
+        padding: 14px 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+        border: 1px solid var(--kf-border);
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 4rem;
-        margin-bottom: 16px;
+        gap: 12px;
+        min-width: 200px;
     }
-    .hero-card-badge {
+    .hero-img-float {
         position: absolute;
-        top: -16px; right: -16px;
+        top: -20px; right: -24px;
         background: var(--kf-accent);
         color: white;
         border-radius: 12px;
         padding: 10px 16px;
         font-size: 0.8rem;
         font-weight: 700;
-        box-shadow: 0 4px 16px rgba(245,158,11,0.35);
-    }
-    .hero-card-floating {
-        position: absolute;
-        bottom: -20px;
-        left: -24px;
-        background: white;
-        border-radius: 14px;
-        padding: 14px 18px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        border: 1px solid var(--kf-border);
-        display: flex;
-        align-items: center;
-        gap: 12px;
+        box-shadow: 0 4px 16px rgba(245,158,11,0.4);
     }
 
     /* ---- FEATURES ---- */
-    .features-section { padding: 80px 0; }
+    .feature-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        transition: transform 0.35s ease;
+    }
+    .kf-card:hover .feature-img { transform: scale(1.04); }
+    .feature-img-wrap {
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
 
     /* ---- HOW IT WORKS ---- */
     .hiw-section { padding: 80px 0; background: var(--kf-light); }
@@ -191,7 +196,6 @@
         border-radius: var(--kf-radius);
         border: 1px solid var(--kf-border);
         transition: var(--kf-transition);
-        position: relative;
     }
     .step-card:hover {
         box-shadow: var(--kf-shadow-lg);
@@ -211,14 +215,30 @@
         font-family: 'Plus Jakarta Sans', sans-serif;
         box-shadow: 0 4px 16px rgba(26,86,219,0.3);
     }
-    .step-connector {
-        position: absolute;
-        top: 72px;
-        right: -30%;
-        width: 60%;
-        height: 2px;
-        background: linear-gradient(to right, var(--kf-primary), transparent);
-        z-index: 0;
+
+    /* ---- APP PREVIEW SECTION ---- */
+    .preview-section { padding: 80px 0; }
+    .preview-img-card {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 12px 40px rgba(26,86,219,0.14);
+        border: 1px solid var(--kf-border);
+        transition: var(--kf-transition);
+    }
+    .preview-img-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(26,86,219,0.20);
+    }
+    .preview-img-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+    }
+    .preview-img-caption {
+        padding: 16px 20px;
+        background: white;
+        border-top: 1px solid var(--kf-border);
     }
 
     /* ---- TESTIMONIALS ---- */
@@ -236,9 +256,7 @@
         box-shadow: var(--kf-shadow-lg);
         transform: translateY(-4px);
     }
-
     .testimonial-stars { color: var(--kf-accent); font-size: 0.9rem; }
-
     .testimonial-avatar {
         width: 48px; height: 48px;
         border-radius: 50%;
@@ -287,7 +305,7 @@
                 </div>
 
                 <h1 class="hero-title fade-in-up fade-in-up-1">
-                    Temukan Kos <span class="highlight">Impianmu</span> dengan Mudah & Cepat
+                    Temukan Kos <span class="text-primary">Impianmu</span> dengan <span class="text-primary">LaKost</span>
                 </h1>
 
                 <p class="hero-desc fade-in-up fade-in-up-2">
@@ -331,41 +349,26 @@
                 </div>
             </div>
 
-            {{-- Hero Visual --}}
+            {{-- Hero Image --}}
             <div class="col-lg-6 d-none d-lg-block fade-in-up fade-in-up-2">
-                <div class="hero-visual px-4">
-                    <div class="hero-card-main position-relative">
-                        <div class="hero-card-badge">
+                <div class="hero-img-stack px-3">
+                    <div class="hero-img-main position-relative">
+                        <img
+                            src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=80"
+                            alt="Kamar kos nyaman LaKost"
+                            loading="lazy"
+                        >
+                        <div class="hero-img-float">
                             <i class="bi bi-star-fill me-1"></i>4.9 Rating
                         </div>
-                        <div class="hero-card-img">
-                            🏠
+                    </div>
+                    <div class="hero-img-badge">
+                        <div style="width:40px;height:40px;border-radius:10px;background:rgba(16,185,129,0.12);display:flex;align-items:center;justify-content:center;color:#10B981;font-size:1.2rem;flex-shrink:0;">
+                            <i class="bi bi-check-circle-fill"></i>
                         </div>
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h6 class="mb-1 fw-bold" style="font-family:'Plus Jakarta Sans',sans-serif;">Kos Putri Damai</h6>
-                                <small class="text-muted"><i class="bi bi-geo-alt me-1"></i>Fatmawati, Jakarta Selatan</small>
-                            </div>
-                            <div class="text-end">
-                                <div class="fw-bold text-primary" style="font-family:'Plus Jakarta Sans',sans-serif;">Rp 1,5 Jt</div>
-                                <small class="text-muted">/bulan</small>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2 mt-3">
-                            @foreach(['WiFi', 'AC', 'Kamar Mandi Dalam'] as $f)
-                            <span class="badge rounded-pill" style="background:rgba(26,86,219,0.08);color:var(--kf-primary);font-weight:500;font-size:0.75rem;">{{ $f }}</span>
-                            @endforeach
-                        </div>
-
-                        {{-- Floating card --}}
-                        <div class="hero-card-floating">
-                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(16,185,129,0.12);display:flex;align-items:center;justify-content:center;color:#10B981;font-size:1.2rem;">
-                                <i class="bi bi-check-circle-fill"></i>
-                            </div>
-                            <div>
-                                <div style="font-size:0.82rem;font-weight:700;color:var(--kf-dark);">Terverifikasi</div>
-                                <div style="font-size:0.75rem;color:var(--kf-gray);">Pemilik & Lokasi Asli</div>
-                            </div>
+                        <div>
+                            <div style="font-size:0.82rem;font-weight:700;color:var(--kf-dark);">Terverifikasi</div>
+                            <div style="font-size:0.75rem;color:var(--kf-gray);">Pemilik & Lokasi Asli</div>
                         </div>
                     </div>
                 </div>
@@ -378,10 +381,10 @@
 {{-- ============================================
      FEATURES SECTION
      ============================================ --}}
-<section class="features-section">
+<section style="padding:80px 0;">
     <div class="container">
         <div class="text-center mb-5">
-            <div class="kf-badge">Kenapa KosFinder?</div>
+            <div class="kf-badge">Kenapa LaKost?</div>
             <h2 class="section-title">Platform yang Dirancang<br>untuk <span class="text-primary">Kemudahanmu</span></h2>
         </div>
 
@@ -389,6 +392,22 @@
             @foreach($features as $i => $feature)
             <div class="col-lg-3 col-md-6 fade-in-up fade-in-up-{{ $i + 1 }}">
                 <div class="kf-card p-4 h-100">
+                    @php
+                        $featureImages = [
+                            'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=70',
+                            'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=70',
+                            'https://images.unsplash.com/photo-1615874694520-474822394e73?w=400&q=70',
+                            'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=70',
+                        ];
+                    @endphp
+                    <div class="feature-img-wrap">
+                        <img
+                            src="{{ $featureImages[$i] }}"
+                            alt="{{ $feature['title'] }}"
+                            class="feature-img"
+                            loading="lazy"
+                        >
+                    </div>
                     <div class="icon-box {{ $feature['color'] }} mb-3">
                         <i class="bi {{ $feature['icon'] }}"></i>
                     </div>
@@ -401,6 +420,110 @@
                 </div>
             </div>
             @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- ============================================
+     APP PREVIEW SECTION (NEW)
+     ============================================ --}}
+<section class="preview-section section-bg">
+    <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+            <div class="kf-badge">Tampilan Aplikasi</div>
+            <h2 class="section-title">Pengalaman Mencari Kos yang <span class="text-primary">Lebih Mudah</span></h2>
+            <p class="text-muted mt-2 mx-auto" style="max-width:500px;">
+                Antarmuka LaKost dirancang agar intuitif dan nyaman — baik di mobile maupun desktop.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-5 col-md-6 fade-in-up fade-in-up-1">
+                <div class="preview-img-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80"
+                        alt="Tampilan pencarian kos LaKost"
+                        loading="lazy"
+                        style="height:300px;"
+                    >
+                    <div class="preview-img-caption">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box primary" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold" style="font-size:0.9rem;">Cari & Filter Mudah</div>
+                                <div class="text-muted" style="font-size:0.8rem;">Filter lokasi, harga, dan fasilitas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 fade-in-up fade-in-up-2">
+                <div class="preview-img-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80"
+                        alt="Detail kamar kos LaKost"
+                        loading="lazy"
+                        style="height:300px;"
+                    >
+                    <div class="preview-img-caption">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box success" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
+                                <i class="bi bi-camera"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold" style="font-size:0.9rem;">Foto Real & Akurat</div>
+                                <div class="text-muted" style="font-size:0.8rem;">Semua foto diverifikasi tim LaKost</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-12 fade-in-up fade-in-up-3">
+                <div class="preview-img-card h-100">
+                    <img
+                        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&q=80"
+                        alt="Fasilitas kos LaKost"
+                        loading="lazy"
+                        style="height:300px;"
+                    >
+                    <div class="preview-img-caption">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box warning" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold" style="font-size:0.9rem;">Kos Terverifikasi</div>
+                                <div class="text-muted" style="font-size:0.8rem;">Aman & terpercaya</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Download App CTA --}}
+        <div class="text-center mt-5 fade-in-up">
+            <p class="text-muted mb-3" style="font-size:0.9rem;">Tersedia di semua platform</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#" class="btn btn-dark btn-lg px-4 d-flex align-items-center gap-2" style="border-radius:12px;">
+                    <i class="bi bi-apple fs-4"></i>
+                    <div class="text-start">
+                        <div style="font-size:0.7rem;opacity:0.7;">Download di</div>
+                        <div style="font-size:0.95rem;font-weight:700;">App Store</div>
+                    </div>
+                </a>
+                <a href="#" class="btn btn-dark btn-lg px-4 d-flex align-items-center gap-2" style="border-radius:12px;">
+                    <i class="bi bi-google-play fs-4"></i>
+                    <div class="text-start">
+                        <div style="font-size:0.7rem;opacity:0.7;">Download di</div>
+                        <div style="font-size:0.95rem;font-weight:700;">Google Play</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -444,14 +567,13 @@
         <div class="text-center mb-5">
             <div class="kf-badge">Testimoni</div>
             <h2 class="section-title">Apa Kata <span class="text-primary">Pengguna</span> Kami?</h2>
-            <p class="text-muted mt-2">Lebih dari 50.000 pengguna telah menemukan kos impian mereka.</p>
+            <p class="text-muted mt-2">Lebih dari 50.000 pengguna telah menemukan kos impian mereka bersama LaKost.</p>
         </div>
 
         <div class="row g-4">
             @foreach($testimonials as $i => $t)
             <div class="col-lg-4 col-md-6 fade-in-up fade-in-up-{{ $i + 1 }}">
                 <div class="testimonial-card">
-                    {{-- Stars --}}
                     <div class="testimonial-stars mb-3">
                         @for($s = 0; $s < $t['rating']; $s++) ⭐ @endfor
                     </div>
@@ -479,10 +601,10 @@
     <div class="container text-center position-relative">
         <div class="kf-badge" style="background:rgba(255,255,255,0.15);color:white;">Mulai Sekarang</div>
         <h2 class="section-title text-white mb-3">
-            Siap Menemukan Kos <br>Impianmu?
+            Siap Menemukan Kos <br>Impianmu di LaKost?
         </h2>
         <p class="text-white opacity-75 mb-4" style="max-width:460px;margin:0 auto 1.5rem;">
-            Bergabung dengan 50.000+ pengguna yang sudah menemukan hunian nyaman bersama KosFinder.
+            Bergabung dengan 50.000+ pengguna yang sudah menemukan hunian nyaman bersama LaKost.
         </p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a href="{{ route('contact') }}" class="btn btn-light btn-lg px-5 fw-bold" style="color:var(--kf-primary);">

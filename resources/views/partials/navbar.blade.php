@@ -1,6 +1,6 @@
 {{--
     Partial: partials/navbar.blade.php
-    Navbar utama KosFinder - responsif dengan active state otomatis
+    Navbar utama LaKost - responsif dengan active state otomatis
 --}}
 
 <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
@@ -11,7 +11,7 @@
             <div class="brand-icon">
                 <i class="bi bi-house-heart-fill"></i>
             </div>
-            <span class="brand-text">Kos<span class="brand-accent">Finder</span></span>
+            <span class="brand-text">La<span class="brand-accent">Kost</span></span>
         </a>
 
         {{-- Toggle Button (Mobile) --}}
@@ -153,7 +153,6 @@
 </style>
 
 <script>
-    // Tambahkan class 'scrolled' saat user scroll ke bawah
     window.addEventListener('scroll', function () {
         const navbar = document.getElementById('mainNavbar');
         if (window.scrollY > 40) {

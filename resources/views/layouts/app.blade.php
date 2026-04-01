@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KosFinder - Platform pencarian kos terpercaya di Indonesia">
-    <title>@yield('title', 'KosFinder') | Temukan Kos Impianmu</title>
+    <meta name="description" content="LaKost - Platform pencarian kos terpercaya di Indonesia">
+    <title>@yield('title', 'LaKost') | Temukan Kos Impianmu</title>
 
     {{-- Bootstrap 5 CSS --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,15 +12,14 @@
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    {{-- Google Fonts: Plus Jakarta Sans + DM Serif Display --}}
+    {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    {{-- Custom CSS Global --}}
     <style>
         /* =============================================
-           CUSTOM CSS - KosFinder Global Styles
+           CUSTOM CSS - LaKost Global Styles
            ============================================= */
 
         :root {
@@ -38,7 +37,6 @@
             --kf-transition:   all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Base Typography */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--kf-dark);
@@ -50,7 +48,6 @@
             font-family: 'DM Serif Display', serif;
         }
 
-        /* Utility Classes */
         .text-primary   { color: var(--kf-primary) !important; }
         .bg-primary     { background-color: var(--kf-primary) !important; }
         .btn-primary    { background-color: var(--kf-primary); border-color: var(--kf-primary); }
@@ -69,14 +66,12 @@
             margin-bottom: 1rem;
         }
 
-        /* Section Title */
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             line-height: 1.2;
             font-weight: 400;
         }
 
-        /* Cards */
         .kf-card {
             border: 1px solid var(--kf-border);
             border-radius: var(--kf-radius);
@@ -89,10 +84,8 @@
             border-color: transparent;
         }
 
-        /* Icon Box */
         .icon-box {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -107,10 +100,8 @@
         .icon-box.danger  { background: rgba(239,68,68,0.10);  color: #EF4444; }
         .icon-box.pink    { background: rgba(236,72,153,0.10); color: var(--kf-pink); }
 
-        /* Avatar Initials */
         .avatar-initials {
-            width: 72px;
-            height: 72px;
+            width: 72px; height: 72px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -128,45 +119,28 @@
         .avatar-initials.danger  { background: rgba(239,68,68,0.12);  color: #EF4444; }
         .avatar-initials.pink    { background: rgba(236,72,153,0.12); color: var(--kf-pink); }
 
-        /* Buttons */
         .btn {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             border-radius: 8px;
             transition: var(--kf-transition);
         }
-        .btn-primary {
-            background: var(--kf-primary);
-            border-color: var(--kf-primary);
-            padding: 10px 28px;
-        }
-        .btn-outline-primary {
-            border-color: var(--kf-primary);
-            color: var(--kf-primary);
-            padding: 10px 28px;
-        }
-        .btn-outline-primary:hover {
-            background: var(--kf-primary);
-            border-color: var(--kf-primary);
-        }
+        .btn-primary { background: var(--kf-primary); border-color: var(--kf-primary); padding: 10px 28px; }
+        .btn-outline-primary { border-color: var(--kf-primary); color: var(--kf-primary); padding: 10px 28px; }
+        .btn-outline-primary:hover { background: var(--kf-primary); border-color: var(--kf-primary); }
 
-        /* Fade-in animation */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(24px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease both;
-        }
+        .fade-in-up   { animation: fadeInUp 0.6s ease both; }
         .fade-in-up-1 { animation-delay: 0.1s; }
         .fade-in-up-2 { animation-delay: 0.2s; }
         .fade-in-up-3 { animation-delay: 0.3s; }
         .fade-in-up-4 { animation-delay: 0.4s; }
 
-        /* Smooth scroll */
         html { scroll-behavior: smooth; }
 
-        /* Form Controls */
         .form-control, .form-select {
             border-radius: 8px;
             border: 1.5px solid var(--kf-border);
@@ -180,11 +154,9 @@
             box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.10);
         }
 
-        /* Section spacing */
         .section-py { padding-top: 80px; padding-bottom: 80px; }
         .section-bg { background-color: var(--kf-light); }
 
-        /* Divider dot */
         .dot-divider {
             width: 6px; height: 6px;
             border-radius: 50%;
@@ -194,26 +166,20 @@
         }
     </style>
 
-    {{-- Slot untuk CSS tambahan per halaman --}}
     @stack('styles')
 </head>
 <body>
 
-    {{-- Navbar --}}
     @include('partials.navbar')
 
-    {{-- Konten Utama --}}
     <main>
         @yield('content')
     </main>
 
-    {{-- Footer --}}
     @include('partials.footer')
 
-    {{-- Bootstrap 5 JS Bundle --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    {{-- Slot untuk JS tambahan per halaman --}}
     @stack('scripts')
 
 </body>
