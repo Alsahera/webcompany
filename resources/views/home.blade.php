@@ -216,29 +216,270 @@
         box-shadow: 0 4px 16px rgba(26,86,219,0.3);
     }
 
-    /* ---- APP PREVIEW SECTION ---- */
-    .preview-section { padding: 80px 0; }
-    .preview-img-card {
-        border-radius: 16px;
+    /* =============================================
+       PHONE MOCKUP SECTION
+       ============================================= */
+    .phone-mockup-section {
+        padding: 100px 0;
+        background: linear-gradient(160deg, #0F172A 0%, #1A2B4A 50%, #0F172A 100%);
+        position: relative;
         overflow: hidden;
-        box-shadow: 0 12px 40px rgba(26,86,219,0.14);
-        border: 1px solid var(--kf-border);
-        transition: var(--kf-transition);
     }
-    .preview-img-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 60px rgba(26,86,219,0.20);
+
+    /* Decorative background circles */
+    .phone-mockup-section::before {
+        content: '';
+        position: absolute;
+        top: -120px; left: -120px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(26,86,219,0.18) 0%, transparent 65%);
+        pointer-events: none;
     }
-    .preview-img-card img {
+    .phone-mockup-section::after {
+        content: '';
+        position: absolute;
+        bottom: -100px; right: -100px;
+        width: 450px; height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 65%);
+        pointer-events: none;
+    }
+
+    /* Floating dots decoration */
+    .mockup-dots {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+            radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+    }
+
+    /* Section badge on dark bg */
+    .kf-badge-dark {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(96,165,250,0.15);
+        color: #60A5FA;
+        border: 1px solid rgba(96,165,250,0.25);
+        margin-bottom: 1rem;
+    }
+
+    /* Phone frame */
+    .phone-frame {
+        position: relative;
+        width: 240px;
+        margin: 0 auto;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        filter: drop-shadow(0 24px 48px rgba(0,0,0,0.5));
+    }
+    .phone-frame:hover {
+        transform: translateY(-14px) scale(1.03);
+    }
+
+    /* The phone body */
+    .phone-body {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border-radius: 42px;
+        padding: 14px;
+        border: 2px solid rgba(255,255,255,0.12);
+        position: relative;
+        box-shadow:
+            0 0 0 1px rgba(0,0,0,0.6),
+            inset 0 1px 0 rgba(255,255,255,0.15),
+            0 32px 64px rgba(0,0,0,0.6),
+            0 8px 16px rgba(0,0,0,0.4);
+    }
+
+    /* Side buttons */
+    .phone-body::before {
+        content: '';
+        position: absolute;
+        right: -4px;
+        top: 80px;
+        width: 4px;
+        height: 60px;
+        background: linear-gradient(to bottom, #334155, #1e293b);
+        border-radius: 0 3px 3px 0;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    }
+    .phone-body::after {
+        content: '';
+        position: absolute;
+        left: -4px;
+        top: 70px;
+        width: 4px;
+        height: 35px;
+        background: linear-gradient(to bottom, #334155, #1e293b);
+        border-radius: 3px 0 0 3px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    }
+
+    /* Screen inner container */
+    .phone-screen {
+        border-radius: 30px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+        aspect-ratio: 9/19;
+    }
+
+    /* Dynamic Island (notch) */
+    .phone-notch {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90px;
+        height: 26px;
+        background: #0f172a;
+        border-radius: 20px;
+        z-index: 10;
+    }
+    .phone-notch::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #1e293b;
+        box-shadow: inset 0 0 4px rgba(26,86,219,0.3);
+    }
+
+    /* Screenshot inside phone */
+    .phone-screenshot {
         width: 100%;
-        height: 240px;
+        height: 100%;
         object-fit: cover;
         display: block;
     }
-    .preview-img-caption {
-        padding: 16px 20px;
+
+    /* Phone label below */
+    .phone-label {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .phone-label-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.9);
+        margin-bottom: 4px;
+    }
+    .phone-label-desc {
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.45);
+    }
+
+    /* Feature pill badges */
+    .feature-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50px;
+        padding: 8px 16px;
+        font-size: 0.83rem;
+        color: rgba(255,255,255,0.75);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 500;
+        transition: all 0.25s ease;
+    }
+    .feature-pill:hover {
+        background: rgba(26,86,219,0.2);
+        border-color: rgba(96,165,250,0.4);
+        color: #60A5FA;
+    }
+    .feature-pill i {
+        color: #60A5FA;
+        font-size: 1rem;
+    }
+
+    /* Download buttons */
+    .app-store-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        border-radius: 14px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1.5px solid;
+    }
+    .app-store-btn.apple {
         background: white;
-        border-top: 1px solid var(--kf-border);
+        color: #0F172A;
+        border-color: white;
+    }
+    .app-store-btn.apple:hover {
+        background: #f0f4ff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+    }
+    .app-store-btn.google {
+        background: rgba(255,255,255,0.06);
+        color: rgba(255,255,255,0.9);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .app-store-btn.google:hover {
+        background: rgba(255,255,255,0.12);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    /* Rating badge */
+    .app-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(245,158,11,0.12);
+        border: 1px solid rgba(245,158,11,0.25);
+        border-radius: 50px;
+        padding: 6px 14px;
+        font-size: 0.82rem;
+        color: #F59E0B;
+        font-weight: 600;
+    }
+
+    /* Floating cards around phones */
+    .mockup-float-card {
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        padding: 12px 16px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.85);
+        position: absolute;
+        z-index: 5;
+        animation: float-card 4s ease-in-out infinite;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    @keyframes float-card {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+    }
+
+    /* Responsive phone sizes */
+    @media (max-width: 991px) {
+        .phone-frame { width: 200px; }
+    }
+    @media (max-width: 575px) {
+        .phone-frame { width: 180px; }
+        .phone-mockup-section { padding: 70px 0; }
     }
 
     /* ---- TESTIMONIALS ---- */
@@ -425,105 +666,206 @@
 </section>
 
 {{-- ============================================
-     APP PREVIEW SECTION (NEW)
+     PHONE MOCKUP SECTION — Preview Aplikasi LaKost
      ============================================ --}}
-<section class="preview-section section-bg">
-    <div class="container">
-        <div class="text-center mb-5 fade-in-up">
-            <div class="kf-badge">Tampilan Aplikasi</div>
-            <h2 class="section-title">Pengalaman Mencari Kos yang <span class="text-primary">Lebih Mudah</span></h2>
-            <p class="text-muted mt-2 mx-auto" style="max-width:500px;">
-                Antarmuka LaKost dirancang agar intuitif dan nyaman — baik di mobile maupun desktop.
-            </p>
-        </div>
+<section class="phone-mockup-section">
+    <div class="mockup-dots"></div>
+    <div class="container position-relative">
 
-        <div class="row g-4">
-            <div class="col-lg-5 col-md-6 fade-in-up fade-in-up-1">
-                <div class="preview-img-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80"
-                        alt="Tampilan pencarian kos LaKost"
-                        loading="lazy"
-                        style="height:300px;"
-                    >
-                    <div class="preview-img-caption">
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="icon-box primary" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
-                                <i class="bi bi-search"></i>
-                            </div>
-                            <div>
-                                <div class="fw-bold" style="font-size:0.9rem;">Cari & Filter Mudah</div>
-                                <div class="text-muted" style="font-size:0.8rem;">Filter lokasi, harga, dan fasilitas</div>
-                            </div>
+        <div class="row align-items-center g-5">
+
+            {{-- LEFT: Text & Features --}}
+            <div class="col-lg-5 fade-in-up">
+                <div class="kf-badge-dark">Preview Aplikasi</div>
+                <h2 class="section-title text-white mb-3">
+                    Lihat Tampilan<br>Aplikasi <span style="color:#60A5FA;">LaKost</span>
+                </h2>
+                <p style="color:rgba(255,255,255,0.6);font-size:0.97rem;line-height:1.75;margin-bottom:2rem;">
+                    Nikmati kemudahan mencari kos langsung dari genggaman tanganmu.
+                    Antarmuka yang bersih, intuitif, dan dirancang untuk pengalaman terbaik.
+                </p>
+
+                {{-- Rating badge --}}
+                <div class="app-rating mb-4">
+                    <i class="bi bi-star-fill"></i>
+                    <span>4.9 / 5 di App Store & Play Store</span>
+                </div>
+
+                {{-- Feature pills --}}
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="feature-pill"><i class="bi bi-search"></i> Pencarian Cerdas</span>
+                    <span class="feature-pill"><i class="bi bi-shield-check"></i> Listing Terverifikasi</span>
+                    <span class="feature-pill"><i class="bi bi-chat-dots"></i> Chat Langsung</span>
+                    <span class="feature-pill"><i class="bi bi-heart"></i> Simpan Favorit</span>
+                    <span class="feature-pill"><i class="bi bi-map"></i> Peta Interaktif</span>
+                    <span class="feature-pill"><i class="bi bi-bell"></i> Notifikasi Real-time</span>
+                </div>
+
+                {{-- Download buttons --}}
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">
+                    Unduh Sekarang
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#" class="app-store-btn apple">
+                        <i class="bi bi-apple fs-5"></i>
+                        <div>
+                            <div style="font-size:0.68rem;font-weight:400;opacity:0.65;line-height:1;">Download di</div>
+                            <div style="font-size:0.88rem;font-weight:700;line-height:1.3;">App Store</div>
                         </div>
-                    </div>
+                    </a>
+                    <a href="#" class="app-store-btn google">
+                        <i class="bi bi-google-play fs-5" style="color:#60A5FA;"></i>
+                        <div>
+                            <div style="font-size:0.68rem;font-weight:400;opacity:0.55;line-height:1;">Download di</div>
+                            <div style="font-size:0.88rem;font-weight:700;line-height:1.3;">Google Play</div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 fade-in-up fade-in-up-2">
-                <div class="preview-img-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80"
-                        alt="Detail kamar kos LaKost"
-                        loading="lazy"
-                        style="height:300px;"
-                    >
-                    <div class="preview-img-caption">
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="icon-box success" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
-                                <i class="bi bi-camera"></i>
-                            </div>
-                            <div>
-                                <div class="fw-bold" style="font-size:0.9rem;">Foto Real & Akurat</div>
-                                <div class="text-muted" style="font-size:0.8rem;">Semua foto diverifikasi tim LaKost</div>
+            {{-- RIGHT: 3 Phone Mockups --}}
+            <div class="col-lg-7 fade-in-up fade-in-up-2">
+                <div class="row g-3 align-items-end justify-content-center">
+
+                    {{-- Phone 1 — Halaman Beranda --}}
+                    <div class="col-4">
+                        <div class="phone-frame" style="animation-delay: 0s;">
+                            <div class="phone-body">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=300&h=640&fit=crop&q=80"
+                                        alt="Layar Beranda LaKost"
+                                        class="phone-screenshot"
+                                        loading="lazy"
+                                    >
+                                    {{-- UI Overlay: Status bar --}}
+                                    <div style="position:absolute;top:0;left:0;right:0;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.95),rgba(255,255,255,0));display:flex;align-items:center;padding:8px 14px 0;gap:8px;z-index:5;">
+                                        <span style="font-size:0.6rem;font-weight:700;color:#0F172A;font-family:'Plus Jakarta Sans',sans-serif;">LaKost</span>
+                                    </div>
+                                    {{-- UI Overlay: Bottom Nav --}}
+                                    <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);padding:8px 0 12px;display:flex;justify-content:space-around;z-index:5;border-top:1px solid rgba(0,0,0,0.07);">
+                                        <div style="text-align:center;">
+                                            <i class="bi bi-house-fill" style="font-size:1rem;color:#1A56DB;display:block;"></i>
+                                            <span style="font-size:0.45rem;color:#1A56DB;font-weight:600;">Beranda</span>
+                                        </div>
+                                        <div style="text-align:center;">
+                                            <i class="bi bi-search" style="font-size:1rem;color:#94A3B8;display:block;"></i>
+                                            <span style="font-size:0.45rem;color:#94A3B8;">Cari</span>
+                                        </div>
+                                        <div style="text-align:center;">
+                                            <i class="bi bi-heart" style="font-size:1rem;color:#94A3B8;display:block;"></i>
+                                            <span style="font-size:0.45rem;color:#94A3B8;">Favorit</span>
+                                        </div>
+                                        <div style="text-align:center;">
+                                            <i class="bi bi-person" style="font-size:1rem;color:#94A3B8;display:block;"></i>
+                                            <span style="font-size:0.45rem;color:#94A3B8;">Profil</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="phone-label">
+                            <div class="phone-label-title">Beranda</div>
+                            <div class="phone-label-desc">Temukan kos populer</div>
+                        </div>
                     </div>
+
+                    {{-- Phone 2 — Halaman Pencarian (featured, taller) --}}
+                    <div class="col-4" style="position:relative;">
+                        {{-- Floating notification card --}}
+                        <div class="mockup-float-card d-none d-md-flex align-items-center gap-2"
+                             style="top:-28px;right:-20px;animation-delay:1s;">
+                            <span style="width:28px;height:28px;border-radius:8px;background:rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;color:#10B981;font-size:0.85rem;flex-shrink:0;">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+                            <div>
+                                <div style="font-weight:700;font-size:0.72rem;">Kos Baru!</div>
+                                <div style="font-size:0.65rem;opacity:0.6;">Rp 800rb/bln · 200m</div>
+                            </div>
+                        </div>
+
+                        <div class="phone-frame" style="transform:scale(1.1);transform-origin:center bottom;margin-bottom:20px;">
+                            <div class="phone-body">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300&h=640&fit=crop&q=80"
+                                        alt="Layar Pencarian LaKost"
+                                        class="phone-screenshot"
+                                        loading="lazy"
+                                    >
+                                    {{-- Search bar overlay --}}
+                                    <div style="position:absolute;top:44px;left:10px;right:10px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-radius:10px;padding:6px 10px;display:flex;align-items:center;gap:6px;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+                                        <i class="bi bi-search" style="font-size:0.65rem;color:#1A56DB;"></i>
+                                        <span style="font-size:0.58rem;color:#94A3B8;font-family:'Plus Jakarta Sans',sans-serif;">Cari kos di sekitar sini…</span>
+                                    </div>
+                                    {{-- Price badge --}}
+                                    <div style="position:absolute;bottom:48px;left:10px;background:#1A56DB;color:white;border-radius:8px;padding:4px 8px;font-size:0.55rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;z-index:5;">
+                                        Rp 750rb/bln
+                                    </div>
+                                    {{-- Bottom nav --}}
+                                    <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);padding:8px 0 12px;display:flex;justify-content:space-around;z-index:5;border-top:1px solid rgba(0,0,0,0.07);">
+                                        <div style="text-align:center;"><i class="bi bi-house" style="font-size:1rem;color:#94A3B8;display:block;"></i><span style="font-size:0.45rem;color:#94A3B8;">Beranda</span></div>
+                                        <div style="text-align:center;"><i class="bi bi-search" style="font-size:1rem;color:#1A56DB;display:block;"></i><span style="font-size:0.45rem;color:#1A56DB;font-weight:600;">Cari</span></div>
+                                        <div style="text-align:center;"><i class="bi bi-heart" style="font-size:1rem;color:#94A3B8;display:block;"></i><span style="font-size:0.45rem;color:#94A3B8;">Favorit</span></div>
+                                        <div style="text-align:center;"><i class="bi bi-person" style="font-size:1rem;color:#94A3B8;display:block;"></i><span style="font-size:0.45rem;color:#94A3B8;">Profil</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-label">
+                            <div class="phone-label-title" style="color:#60A5FA;">Pencarian</div>
+                            <div class="phone-label-desc">Filter & jelajahi kos</div>
+                        </div>
+                    </div>
+
+                    {{-- Phone 3 — Detail Kamar --}}
+                    <div class="col-4" style="position:relative;">
+                        {{-- Floating rating card --}}
+                        <div class="mockup-float-card d-none d-md-flex align-items-center gap-2"
+                             style="bottom:80px;left:-28px;animation-delay:2s;">
+                            <i class="bi bi-star-fill" style="color:#F59E0B;font-size:0.9rem;"></i>
+                            <div>
+                                <div style="font-weight:700;font-size:0.72rem;">4.9 ★ Rating</div>
+                                <div style="font-size:0.65rem;opacity:0.6;">1.2k+ ulasan</div>
+                            </div>
+                        </div>
+
+                        <div class="phone-frame" style="animation-delay: 0.5s;">
+                            <div class="phone-body">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=300&h=640&fit=crop&q=80"
+                                        alt="Layar Detail Kamar LaKost"
+                                        class="phone-screenshot"
+                                        loading="lazy"
+                                    >
+                                    {{-- Back button --}}
+                                    <div style="position:absolute;top:44px;left:10px;width:28px;height:28px;background:rgba(255,255,255,0.9);border-radius:8px;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                                        <i class="bi bi-arrow-left" style="font-size:0.7rem;color:#0F172A;"></i>
+                                    </div>
+                                    {{-- Heart button --}}
+                                    <div style="position:absolute;top:44px;right:10px;width:28px;height:28px;background:rgba(255,255,255,0.9);border-radius:8px;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                                        <i class="bi bi-heart-fill" style="font-size:0.7rem;color:#EF4444;"></i>
+                                    </div>
+                                    {{-- Book button --}}
+                                    <div style="position:absolute;bottom:10px;left:10px;right:10px;background:#1A56DB;color:white;border-radius:10px;padding:7px;text-align:center;font-size:0.6rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;z-index:5;">
+                                        Hubungi Pemilik
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-label">
+                            <div class="phone-label-title">Detail Kamar</div>
+                            <div class="phone-label-desc">Info lengkap & booking</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-12 fade-in-up fade-in-up-3">
-                <div class="preview-img-card h-100">
-                    <img
-                        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&q=80"
-                        alt="Fasilitas kos LaKost"
-                        loading="lazy"
-                        style="height:300px;"
-                    >
-                    <div class="preview-img-caption">
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="icon-box warning" style="width:36px;height:36px;border-radius:9px;font-size:1rem;">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <div>
-                                <div class="fw-bold" style="font-size:0.9rem;">Kos Terverifikasi</div>
-                                <div class="text-muted" style="font-size:0.8rem;">Aman & terpercaya</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- Download App CTA --}}
-        <div class="text-center mt-5 fade-in-up">
-            <p class="text-muted mb-3" style="font-size:0.9rem;">Tersedia di semua platform</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#" class="btn btn-dark btn-lg px-4 d-flex align-items-center gap-2" style="border-radius:12px;">
-                    <i class="bi bi-apple fs-4"></i>
-                    <div class="text-start">
-                        <div style="font-size:0.7rem;opacity:0.7;">Download di</div>
-                        <div style="font-size:0.95rem;font-weight:700;">App Store</div>
-                    </div>
-                </a>
-                <a href="#" class="btn btn-dark btn-lg px-4 d-flex align-items-center gap-2" style="border-radius:12px;">
-                    <i class="bi bi-google-play fs-4"></i>
-                    <div class="text-start">
-                        <div style="font-size:0.7rem;opacity:0.7;">Download di</div>
-                        <div style="font-size:0.95rem;font-weight:700;">Google Play</div>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
 </section>
