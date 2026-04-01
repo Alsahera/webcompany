@@ -54,12 +54,9 @@
             </ul>
 
             {{-- CTA Button --}}
-            <div class="d-flex gap-2 align-items-center">
-                <a href="{{ route('contact') }}" class="btn btn-outline-primary btn-sm px-3">
-                    Daftar Kos
-                </a>
-                <a href="{{ route('home') }}" class="btn btn-primary btn-sm px-3">
-                    <i class="bi bi-search me-1"></i>Cari Kos
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-primary btn-install px-4">
+                    <i class="bi bi-download me-2"></i>Install Sekarang
                 </a>
             </div>
         </div>
@@ -122,6 +119,31 @@
         font-weight: 600;
     }
 
+    /* Install Button */
+    .btn-install {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        padding: 10px 24px;
+        background: var(--kf-primary);
+        border-color: var(--kf-primary);
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px rgba(26, 86, 219, 0.25);
+    }
+    .btn-install:hover {
+        background: var(--kf-primary-dark, #1447C0);
+        border-color: var(--kf-primary-dark, #1447C0);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(26, 86, 219, 0.35);
+    }
+    .btn-install:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(26, 86, 219, 0.20);
+    }
+
     /* Toggler */
     .navbar-toggler {
         border: 1.5px solid var(--kf-border);
@@ -145,9 +167,14 @@
             padding-top: 12px;
         }
         .navbar-nav { gap: 2px !important; }
-        .d-flex.gap-2 {
+        .d-flex.align-items-center {
             margin-top: 12px;
             padding-bottom: 8px;
+        }
+        .btn-install {
+            width: 100%;
+            justify-content: center;
+            display: flex;
         }
     }
 </style>
