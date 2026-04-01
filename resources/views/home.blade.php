@@ -936,27 +936,4 @@
     </div>
 </section>
 
-{{-- ============================================
-     CTA SECTION
-     ============================================ --}}
-<section class="cta-section">
-    <div class="container text-center position-relative">
-        <div class="kf-badge" style="background:rgba(255,255,255,0.15);color:white;">Mulai Sekarang</div>
-        <h2 class="section-title text-white mb-3">
-            Siap Menemukan Kos <br>Impianmu di LaKost?
-        </h2>
-        <p class="text-white opacity-75 mb-4" style="max-width:460px;margin:0 auto 1.5rem;">
-            Bergabung dengan 50.000+ pengguna yang sudah menemukan hunian nyaman bersama LaKost.
-        </p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="{{ route('contact') }}" class="btn btn-light btn-lg px-5 fw-bold" style="color:var(--kf-primary);">
-                <i class="bi bi-search me-2"></i>Cari Kos Sekarang
-            </a>
-            <a href="{{ route('about') }}" class="btn btn-outline-light btn-lg px-5">
-                Pelajari Lebih Lanjut
-            </a>
-        </div>
-    </div>
-</section>
-
 @endsection

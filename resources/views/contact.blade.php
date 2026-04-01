@@ -284,7 +284,7 @@
                     <div class="d-flex flex-column gap-2" id="faqAccordion">
                         @foreach([
                             [
-                                'q' => 'Apakah mendaftar di KosFinder gratis?',
+                                'q' => 'Apakah mendaftar di LaKost gratis?',
                                 'a' => 'Ya! Pencari kos bisa mendaftar dan menggunakan semua fitur pencarian secara gratis. Untuk pemilik kos, tersedia paket premium dengan fitur tambahan.'
                             ],
                             [
@@ -292,7 +292,7 @@
                                 'a' => 'Kamu bisa mendaftarkan properti melalui menu "Daftar Kos" di halaman utama. Tim kami akan menghubungi dan membantu proses verifikasi.'
                             ],
                             [
-                                'q' => 'Berapa lama waktu respons tim KosFinder?',
+                                'q' => 'Berapa lama waktu respons tim LaKost?',
                                 'a' => 'Tim kami merespons pesan dalam 1x24 jam pada hari kerja (Senin–Jumat). Untuk isu mendesak, hubungi WhatsApp kami.'
                             ],
                             [
@@ -338,8 +338,8 @@
         <div class="row g-4 justify-content-center">
             @foreach([
                 ['icon' => 'bi-whatsapp',    'color' => '#25D366', 'bg' => 'rgba(37,211,102,0.08)', 'title' => 'WhatsApp',    'value' => '+62 812-3456-7890', 'action' => 'Chat Sekarang', 'link' => '#'],
-                ['icon' => 'bi-instagram',   'color' => '#E1306C', 'bg' => 'rgba(225,48,108,0.08)', 'title' => 'Instagram',   'value' => '@kosfinder.id',     'action' => 'Ikuti Kami',    'link' => '#'],
-                ['icon' => 'bi-envelope-fill','color' => 'var(--kf-primary)', 'bg' => 'rgba(26,86,219,0.08)', 'title' => 'Email',       'value' => 'hello@kosfinder.id','action' => 'Kirim Email',  'link' => 'mailto:hello@kosfinder.id'],
+                ['icon' => 'bi-instagram',   'color' => '#E1306C', 'bg' => 'rgba(225,48,108,0.08)', 'title' => 'Instagram',   'value' => '@lakost.id',     'action' => 'Ikuti Kami',    'link' => '#'],
+                ['icon' => 'bi-envelope-fill','color' => 'var(--kf-primary)', 'bg' => 'rgba(26,86,219,0.08)', 'title' => 'Email',       'value' => 'hello@lakost.id','action' => 'Kirim Email',  'link' => 'mailto:hello@lakost.id'],
             ] as $i => $ch)
             <div class="col-lg-4 col-md-6 fade-in-up fade-in-up-{{ $i + 1 }}">
                 <div class="kf-card p-4 text-center">

@@ -176,7 +176,7 @@
                             <i class="bi bi-code-slash me-1"></i>Frontend Developer
                         </div>
                         <h5 class="mb-2" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.15rem;">
-                            Dimas Prasetyo
+                            Angelina Safara - 04
                         </h5>
                         <p class="text-muted mb-0" style="font-size:0.87rem;line-height:1.65;">
                             Spesialis React & Vue.js dengan passion pada performa dan aksesibilitas web. 
@@ -207,7 +207,7 @@
                             <i class="bi bi-server me-1"></i>Backend Developer
                         </div>
                         <h5 class="mb-2" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.15rem;">
-                            Novi Anggraini
+                            Alsahera Ramadhan Nesa - 23
                         </h5>
                         <p class="text-muted mb-0" style="font-size:0.87rem;line-height:1.65;">
                             Expert Laravel & Node.js yang memastikan sistem LaKost berjalan cepat, 
@@ -238,7 +238,7 @@
                             <i class="bi bi-palette me-1"></i>UI/UX Designer
                         </div>
                         <h5 class="mb-2" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.15rem;">
-                            Sari Puspita
+                            Nabillatun Nafista - 27
                         </h5>
                         <p class="text-muted mb-0" style="font-size:0.87rem;line-height:1.65;">
                             Desainer berpengalaman yang berfokus pada pengalaman pengguna yang intuitif 

@@ -70,7 +70,7 @@
                     <ul class="footer-contact-list">
                         <li>
                             <i class="bi bi-geo-alt-fill text-primary"></i>
-                            <span>Jl. Sudirman No. 88, Jakarta Selatan 12190</span>
+                            <span>Jl. Mendalan No.62, Banjarmendalan, Lamongan, Jawa Timur 62212</span>
                         </li>
                         <li>
                             <i class="bi bi-telephone-fill text-primary"></i>
@@ -82,7 +82,7 @@
                         </li>
                         <li>
                             <i class="bi bi-clock-fill text-primary"></i>
-                            <span>Senin – Jumat, 09.00 – 17.00 WIB</span>
+                            <span>Senin – Jumat, 09.00 – 15.00 WIB</span>
                         </li>
                     </ul>
                 </div>
