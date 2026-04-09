@@ -53,11 +53,28 @@
                 </li>
             </ul>
 
-            {{-- CTA Button --}}
-            <div class="d-flex align-items-center">
-                <a href="#" class="btn btn-primary btn-install px-4">
-                    <i class="bi bi-download me-2"></i>Install Sekarang
-                </a>
+            {{-- CTA Buttons --}}
+            <div class="d-flex align-items-center gap-2">
+                @auth
+                    {{-- Sudah login: tampilkan tombol Dashboard --}}
+                    <a href="{{ route('dashboard') }}" class="btn btn-outline-primary btn-sm px-3">
+                        <i class="bi bi-speedometer2 me-1"></i>Dashboard
+                    </a>
+                    <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-outline-danger px-3">
+                            <i class="bi bi-box-arrow-right me-1"></i>Logout
+                        </button>
+                    </form>
+                @else
+                    {{-- Belum login: Login + Install --}}
+                    <a href="{{ route('login') }}" class="btn btn-outline-primary btn-login px-4">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                    </a>
+                    <a href="#" class="btn btn-primary btn-install px-4">
+                        <i class="bi bi-download me-2"></i>Install Sekarang
+                    </a>
+                @endauth
             </div>
         </div>
 
@@ -119,6 +136,22 @@
         font-weight: 600;
     }
 
+    /* Login Button */
+    .btn-login {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        padding: 10px 20px;
+        border: 1.5px solid var(--kf-primary);
+        color: var(--kf-primary);
+        transition: all 0.3s ease;
+    }
+    .btn-login:hover {
+        background: rgba(26, 86, 219, 0.06);
+        transform: translateY(-1px);
+    }
+
     /* Install Button */
     .btn-install {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -138,10 +171,6 @@
         color: white;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(26, 86, 219, 0.35);
-    }
-    .btn-install:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 8px rgba(26, 86, 219, 0.20);
     }
 
     /* Toggler */
@@ -167,14 +196,16 @@
             padding-top: 12px;
         }
         .navbar-nav { gap: 2px !important; }
-        .d-flex.align-items-center {
+        .d-flex.align-items-center.gap-2 {
             margin-top: 12px;
             padding-bottom: 8px;
+            flex-wrap: wrap;
         }
-        .btn-install {
-            width: 100%;
+        .btn-install, .btn-login {
+            flex: 1;
             justify-content: center;
             display: flex;
+            text-align: center;
         }
     }
 </style>
