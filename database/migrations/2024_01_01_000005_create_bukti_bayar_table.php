@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('bukti_bayar', function (Blueprint $table) {
             $table->id();
             $table->foreignId('booking_id')->constrained('booking')->onDelete('cascade');
-            $table->string('file_bukti');
+            $table->string('file_bukti', 500);
             $table->timestamps();
         });
     }

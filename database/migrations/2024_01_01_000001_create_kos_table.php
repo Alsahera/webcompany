@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('kos', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kos');
+            $table->string('nama_kos', 255);
             $table->decimal('harga', 12, 2);
-            $table->string('lokasi');
-            $table->text('deskripsi')->nullable();
+            $table->string('lokasi', 255);
+            $table->text('deskripsi')->nullable();   // CLOB di Oracle
             $table->timestamps();
         });
     }

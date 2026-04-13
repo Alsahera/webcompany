@@ -1,4 +1,4 @@
-{{--
+{{-- 
     Partial: partials/navbar.blade.php
     Navbar utama LaKost - responsif dengan active state otomatis
 --}}
@@ -27,39 +27,53 @@
         {{-- Nav Links --}}
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto gap-1">
+
+                @if(Route::has('home'))
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
                        href="{{ route('home') }}">
                         <i class="bi bi-house me-1"></i>Beranda
                     </a>
                 </li>
+                @endif
+
+                @if(Route::has('about'))
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                        href="{{ route('about') }}">
                         <i class="bi bi-info-circle me-1"></i>Tentang
                     </a>
                 </li>
+                @endif
+
+                @if(Route::has('team'))
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('team') ? 'active' : '' }}"
                        href="{{ route('team') }}">
                         <i class="bi bi-people me-1"></i>Tim Kami
                     </a>
                 </li>
+                @endif
+
+                @if(Route::has('contact'))
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
                        href="{{ route('contact') }}">
                         <i class="bi bi-envelope me-1"></i>Kontak
                     </a>
                 </li>
+                @endif
+
             </ul>
 
             {{-- CTA Buttons --}}
             <div class="d-flex align-items-center gap-2">
                 @auth
-                    {{-- Sudah login: tampilkan tombol Dashboard --}}
+                    {{-- Sudah login --}}
                     <a href="{{ route('dashboard') }}" class="btn btn-outline-primary btn-sm px-3">
                         <i class="bi bi-speedometer2 me-1"></i>Dashboard
                     </a>
+
                     <form method="POST" action="{{ route('logout') }}" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-outline-danger px-3">
@@ -67,10 +81,11 @@
                         </button>
                     </form>
                 @else
-                    {{-- Belum login: Login + Install --}}
+                    {{-- Belum login --}}
                     <a href="{{ route('login') }}" class="btn btn-outline-primary btn-login px-4">
                         <i class="bi bi-box-arrow-in-right me-1"></i>Login
                     </a>
+
                     <a href="#" class="btn btn-primary btn-install px-4">
                         <i class="bi bi-download me-2"></i>Install Sekarang
                     </a>
@@ -82,9 +97,6 @@
 </nav>
 
 <style>
-    /* =============================================
-       Navbar Styles
-       ============================================= */
     #mainNavbar {
         background: rgba(255, 255, 255, 0.97);
         backdrop-filter: blur(12px);
@@ -94,7 +106,6 @@
         transition: all 0.3s ease;
     }
 
-    /* Brand */
     .brand-icon {
         width: 38px;
         height: 38px;
@@ -106,17 +117,17 @@
         color: white;
         font-size: 1.1rem;
     }
+
     .brand-text {
         font-family: 'DM Serif Display', serif;
         font-size: 1.4rem;
         color: var(--kf-dark);
-        line-height: 1;
     }
+
     .brand-accent {
         color: var(--kf-primary);
     }
 
-    /* Nav Links */
     .navbar-nav .nav-link {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 500;
@@ -126,87 +137,33 @@
         border-radius: 8px;
         transition: all 0.25s ease;
     }
+
     .navbar-nav .nav-link:hover {
         color: var(--kf-primary);
         background: rgba(26, 86, 219, 0.06);
     }
+
     .navbar-nav .nav-link.active {
         color: var(--kf-primary);
         background: rgba(26, 86, 219, 0.10);
         font-weight: 600;
     }
 
-    /* Login Button */
     .btn-login {
-        font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 600;
-        font-size: 0.9rem;
         border-radius: 10px;
         padding: 10px 20px;
-        border: 1.5px solid var(--kf-primary);
-        color: var(--kf-primary);
-        transition: all 0.3s ease;
-    }
-    .btn-login:hover {
-        background: rgba(26, 86, 219, 0.06);
-        transform: translateY(-1px);
     }
 
-    /* Install Button */
     .btn-install {
-        font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 600;
-        font-size: 0.9rem;
         border-radius: 10px;
         padding: 10px 24px;
-        background: var(--kf-primary);
-        border-color: var(--kf-primary);
-        color: white;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 14px rgba(26, 86, 219, 0.25);
-    }
-    .btn-install:hover {
-        background: var(--kf-primary-dark, #1447C0);
-        border-color: var(--kf-primary-dark, #1447C0);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(26, 86, 219, 0.35);
     }
 
-    /* Toggler */
-    .navbar-toggler {
-        border: 1.5px solid var(--kf-border);
-        border-radius: 8px;
-        padding: 6px 10px;
-        color: var(--kf-dark);
-    }
-    .navbar-toggler:focus { box-shadow: none; }
-
-    /* Scrolled state */
     #mainNavbar.scrolled {
         box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         padding: 10px 0;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 991px) {
-        .navbar-collapse {
-            border-top: 1px solid var(--kf-border);
-            margin-top: 12px;
-            padding-top: 12px;
-        }
-        .navbar-nav { gap: 2px !important; }
-        .d-flex.align-items-center.gap-2 {
-            margin-top: 12px;
-            padding-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        .btn-install, .btn-login {
-            flex: 1;
-            justify-content: center;
-            display: flex;
-            text-align: center;
-        }
     }
 </style>
 

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('galeri', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kos_id')->constrained('kos')->onDelete('cascade');
-            $table->string('foto');
+            $table->string('foto', 500);    // path bisa panjang
             $table->timestamps();
         });
     }

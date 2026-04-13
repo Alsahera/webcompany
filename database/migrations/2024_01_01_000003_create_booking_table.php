@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('kos_id')->constrained('kos')->onDelete('cascade');
             $table->date('tanggal_masuk');
-            $table->integer('durasi_sewa'); // dalam bulan
+            $table->integer('durasi_sewa');
             $table->timestamps();
         });
     }
