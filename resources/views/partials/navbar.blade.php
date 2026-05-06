@@ -1,6 +1,6 @@
 {{--
-    Partial: partials/navbar.blade.php
-    Navbar utama LaKost - responsif dengan active state otomatis
+    Partial: partials/navbar.blade.php  [VERSI UPDATE — tambah menu client]
+    GANTI file resources/views/partials/navbar.blade.php dengan ini
 --}}
 
 <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
@@ -33,6 +33,15 @@
                         <i class="bi bi-house me-1"></i>Beranda
                     </a>
                 </li>
+
+                {{-- ★ MENU BARU: Cari Kos ★ --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('client.kos*') ? 'active' : '' }}"
+                       href="{{ route('client.kos') }}">
+                        <i class="bi bi-building me-1"></i>Cari Kos
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                        href="{{ route('about') }}">
@@ -56,7 +65,11 @@
             {{-- CTA Buttons --}}
             <div class="d-flex align-items-center gap-2">
                 @auth
-                    {{-- Sudah login: tampilkan tombol Dashboard --}}
+                    {{-- ★ MENU BARU: Booking Saya (untuk user login) ★ --}}
+                    <a href="{{ route('client.my-bookings') }}"
+                       class="btn btn-sm btn-outline-secondary px-3 {{ request()->routeIs('client.my-bookings') ? 'active' : '' }}">
+                        <i class="bi bi-calendar-check me-1"></i>Booking Saya
+                    </a>
                     <a href="{{ route('dashboard') }}" class="btn btn-outline-primary btn-sm px-3">
                         <i class="bi bi-speedometer2 me-1"></i>Dashboard
                     </a>
@@ -67,12 +80,11 @@
                         </button>
                     </form>
                 @else
-                    {{-- Belum login: Login + Install --}}
                     <a href="{{ route('login') }}" class="btn btn-outline-primary btn-login px-4">
                         <i class="bi bi-box-arrow-in-right me-1"></i>Login
                     </a>
-                    <a href="#" class="btn btn-primary btn-install px-4">
-                        <i class="bi bi-download me-2"></i>Install Sekarang
+                    <a href="{{ route('client.kos') }}" class="btn btn-primary btn-install px-4">
+                        <i class="bi bi-search me-2"></i>Cari Kos
                     </a>
                 @endauth
             </div>
@@ -94,10 +106,8 @@
         transition: all 0.3s ease;
     }
 
-    /* Brand */
     .brand-icon {
-        width: 38px;
-        height: 38px;
+        width: 38px; height: 38px;
         background: var(--kf-primary);
         border-radius: 10px;
         display: flex;
@@ -112,11 +122,8 @@
         color: var(--kf-dark);
         line-height: 1;
     }
-    .brand-accent {
-        color: var(--kf-primary);
-    }
+    .brand-accent { color: var(--kf-primary); }
 
-    /* Nav Links */
     .navbar-nav .nav-link {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 500;
@@ -136,7 +143,6 @@
         font-weight: 600;
     }
 
-    /* Login Button */
     .btn-login {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 600;
@@ -152,7 +158,6 @@
         transform: translateY(-1px);
     }
 
-    /* Install Button */
     .btn-install {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 600;
@@ -173,7 +178,6 @@
         box-shadow: 0 6px 20px rgba(26, 86, 219, 0.35);
     }
 
-    /* Toggler */
     .navbar-toggler {
         border: 1.5px solid var(--kf-border);
         border-radius: 8px;
@@ -182,13 +186,11 @@
     }
     .navbar-toggler:focus { box-shadow: none; }
 
-    /* Scrolled state */
     #mainNavbar.scrolled {
         box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         padding: 10px 0;
     }
 
-    /* Mobile responsive */
     @media (max-width: 991px) {
         .navbar-collapse {
             border-top: 1px solid var(--kf-border);
