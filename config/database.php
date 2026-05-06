@@ -65,6 +65,19 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'oracle' => [
+            'driver'         => 'oracle',
+            'host'           => env('DB_HOST', '127.0.0.1'),
+            'port'           => env('DB_PORT', '1521'),
+            'database'       => env('DB_DATABASE', ''),
+            'service_name'   => env('DB_SERVICE_NAME', 'orclpdb'),
+            'username'       => env('DB_USERNAME', 'lakost_user'),
+            'password'       => env('DB_PASSWORD', 'password123'),
+            'charset'        => 'AL32UTF8',
+            'prefix'         => '',
+            'prefix_indexes' => true,
+        ],
+
     ],
 
     'migrations' => [
